@@ -1,11 +1,11 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "description": "",
+  "description": "", 
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=production node index.mjs",
-    "dev": "nodemon index.mjs"
+    "dev": "nodemon --exitcrash index.mjs"
   },
   "keywords": [],
   "author": "",
