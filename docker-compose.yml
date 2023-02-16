@@ -6,13 +6,25 @@ services:
     restart: always
     ports:
       - '3000:3000'
+    volumes:
+      - /app/node_modules
+      - ./frontend:/app
   backend:
     build: ./api
     restart: always
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PORT: '3306'
+      MYSQL_PASSWORD: password
+      MYSQL_DB: time_db
     ports:
       - '5555:8000'
     depends_on:
       - mysql
+    volumes:
+      - /app/node_modules
+      - ./api:/app
   mysql:
     image: mysql
     restart: always
